@@ -1,0 +1,992 @@
+/* ================================================================
+   ASK SIGNATURE HOMES — style.css
+   ================================================================
+   HOW TO EDIT:
+   • All colours live in :root at the top — change them there first
+   • Each section is clearly labelled with a comment block
+   • Search for the section name (e.g. "TOPBAR", "HERO", "FORM")
+     to jump straight to what you want to change
+   ================================================================ */
+
+
+/* ── 1. DESIGN TOKENS (colours, etc.) ─────────────────────────── */
+/* Change any colour here and it updates everywhere on the page   */
+:root {
+  /* Background shades — dark navy palette */
+  --ink:    #080F1E;   /* darkest background */
+  --ink2:   #0F1B30;   /* slightly lighter — used for alternate sections */
+  --ink3:   #162340;   /* lightest navy — used for avatar backgrounds */
+
+  /* Gold accent palette */
+  --gold:   #BF9332;   /* main gold */
+  --gold2:  #D4AC4E;   /* lighter gold — hover states, headings */
+  --gold3:  #E8CA7A;   /* pale gold — tags and pills */
+
+  /* Transparent overlays */
+  --dim:    rgba(191, 147, 50, 0.14);
+  --dim2:   rgba(191, 147, 50, 0.07);
+
+  /* White-based translucents — for cards and subtle backgrounds */
+  --fog:    rgba(255, 255, 255, 0.045);
+  --fog2:   rgba(255, 255, 255, 0.09);
+  --mist:   rgba(255, 255, 255, 0.55);   /* readable body text */
+  --smoke:  rgba(255, 255, 255, 0.28);   /* dimmer body text */
+  --ash:    rgba(255, 255, 255, 0.14);   /* labels, placeholders */
+
+  /* Border colours */
+  --border:  rgba(191, 147, 50, 0.22);  /* gold-tinted border */
+  --border2: rgba(191, 147, 50, 0.10);  /* subtle gold border */
+}
+
+
+/* ── 2. RESET & BASE ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--ink);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Thin gold scrollbar */
+::-webkit-scrollbar          { width: 4px; }
+::-webkit-scrollbar-track    { background: var(--ink); }
+::-webkit-scrollbar-thumb    { background: var(--gold); border-radius: 2px; }
+
+/* Subtle grain texture overlay across entire page */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+
+/* ── 3. TOPBAR ─────────────────────────────────────────────────── */
+/* The fixed navigation bar at the top of the page                */
+.bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+  background: rgba(8, 15, 30, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border2);
+}
+
+/* Brand name — top left */
+.bar-brand {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  color: var(--gold2);
+}
+
+/* Nav links — centre */
+.bar-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.bar-link {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--smoke);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.bar-link:hover { color: var(--gold2); }
+
+/* "Book Free Call" button — top right */
+.bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.48rem 1.25rem;
+  border-radius: 2px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.bar-btn:hover { background: var(--gold2); transform: translateY(-1px); }
+
+
+/* ── 4. HERO SECTION ───────────────────────────────────────────── */
+/* Two-column layout: headline left, booking form right           */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 480px);
+  gap: 0;
+  padding-top: 58px; /* offset for fixed topbar */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vertical gold dividing line between left and right panels */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: calc(100% - 480px - 1px);
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 0%, var(--gold) 20%, var(--gold) 80%, transparent 100%);
+  opacity: 0.18;
+  z-index: 2;
+}
+
+/* Grid background pattern */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--dim2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--dim2) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.6;
+}
+
+/* Radial gold glow in centre */
+.hero-glow {
+  position: absolute;
+  width: 900px; height: 700px;
+  top: 50%; left: 30%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(191, 147, 50, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── HERO LEFT (headline + stats) ── */
+.hero-left {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem clamp(1.5rem, 5vw, 5rem) 6rem clamp(1.5rem, 8vw, 7rem);
+}
+
+/* Small label above the headline */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.75rem;
+  animation: fadeUp 0.8s ease both;
+}
+.eyebrow-line {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* Main headline */
+/* TO CHANGE: edit the text in index.html inside <h1 class="hero-h1"> */
+.hero-h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);  /* scales with screen size */
+  font-weight: 400;
+  line-height: 1.07;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 1.75rem;
+  animation: fadeUp 0.8s 0.08s ease both;
+}
+.hero-h1 i   { font-style: italic; color: var(--gold2); }  /* italic gold words */
+.hero-h1 .ul { position: relative; display: inline-block; }
+.hero-h1 .ul::after {                                        /* underline effect */
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px; right: 0;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* Subtitle paragraph */
+.hero-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--smoke);
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s 0.16s ease both;
+}
+
+/* Audience pills row (Investors · Relocation Buyers · etc.) */
+.audience-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s 0.22s ease both;
+}
+.pill {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--gold3);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 0.28rem 0.85rem;
+  background: var(--dim2);
+}
+
+/* CTA buttons row */
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeUp 0.8s 0.28s ease both;
+}
+
+/* Primary gold button */
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 2rem;
+  border-radius: 2px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 0 0 rgba(191, 147, 50, 0);
+}
+.cta-primary:hover {
+  background: var(--gold2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(191, 147, 50, 0.25);
+}
+
+/* Secondary text link */
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--smoke);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cta-secondary:hover { color: var(--gold2); }
+.cta-secondary svg   { width: 14px; height: 14px; opacity: 0.6; }
+
+/* Three stat boxes (0%, 8–12%, 10yr) */
+.stat-row {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  margin-top: 3rem;
+  animation: fadeUp 0.8s 0.34s ease both;
+  max-width: 480px;
+}
+.stat-cell {
+  flex: 1;
+  padding: 0.9rem 1.1rem;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  color: var(--gold2);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.stat-lbl {
+  font-size: 0.62rem;
+  color: var(--ash);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* ── 5. BOOKING FORM PANEL (hero right side) ───────────────────── */
+.hero-right {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.026);
+  border-left: 1px solid var(--border2);
+  padding: 4rem 2.5rem;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+
+.panel-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+.panel-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+.panel-sub {
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--smoke);
+  margin-bottom: 2rem;
+}
+
+/* Form fields */
+.form-field         { margin-bottom: 1rem; }
+.form-field label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 0.4rem;
+}
+.form-field input,
+.form-field select {
+  width: 100%;
+  background: var(--fog);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  padding: 0.7rem 1rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+}
+.form-field input::placeholder { color: var(--ash); }
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--gold);
+  background: var(--fog2);
+}
+
+/* Select dropdown arrow */
+.form-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23BF9332' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  cursor: pointer;
+}
+.form-field select option { background: var(--ink2); color: #fff; }
+
+/* Two fields side by side */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* Submit button */
+.form-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 1rem;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  transition: background 0.2s, transform 0.15s;
+}
+.form-submit:hover { background: var(--gold2); transform: translateY(-1px); }
+
+/* Privacy note below button */
+.form-note {
+  font-size: 0.68rem;
+  color: var(--ash);
+  text-align: center;
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
+.form-note a { color: var(--gold); text-decoration: none; }
+
+/* "OR CHAT INSTANTLY" divider */
+.panel-or {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+.or-line { flex: 1; height: 1px; background: var(--ash); }
+.or-text  { font-size: 0.68rem; color: var(--ash); letter-spacing: 0.06em; flex-shrink: 0; }
+
+/* WhatsApp button inside the form panel */
+.wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  border-radius: 2px;
+  color: #4BE87B;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.wa-btn:hover {
+  background: rgba(37, 211, 102, 0.2);
+  border-color: rgba(37, 211, 102, 0.4);
+}
+.wa-btn svg { width: 16px; height: 16px; }
+
+
+/* ── 6. TRUST STRIP ────────────────────────────────────────────── */
+/* Developer logo strip between hero and first section            */
+.trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  background: var(--ink2);
+  border-top: 1px solid var(--border2);
+  border-bottom: 1px solid var(--border2);
+  padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+}
+.trust-lbl {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ash);
+  white-space: nowrap;
+  margin-right: 2.5rem;
+}
+.trust-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 2.5rem; }
+.trust-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.18);
+  transition: color 0.2s;
+  cursor: default;
+}
+.trust-logo:hover { color: var(--gold); }
+
+
+/* ── 7. SECTION SHARED STYLES ──────────────────────────────────── */
+/* Used across all sections below the hero                        */
+.s       { padding: 7rem clamp(1.25rem, 8vw, 7rem); }
+.s-inner { max-width: 1100px; margin: 0 auto; }
+
+/* Small label above section headings */
+.s-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.s-eyebrow::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* Section main heading */
+.s-h {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.12;
+  color: #fff;
+  margin-bottom: 1.1rem;
+}
+.s-h i { font-style: italic; color: var(--gold2); }
+
+/* Section subtitle paragraph */
+.s-p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--smoke);
+  max-width: 520px;
+}
+
+
+/* ── 8. WHO WE HELP SECTION ────────────────────────────────────── */
+.audience-s { background: var(--ink2); }
+
+/* 2x2 grid of audience cards */
+.aud-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border2);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 3.5rem;
+}
+.aud-card {
+  background: var(--ink);
+  padding: 2.25rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s;
+}
+.aud-card:hover { background: var(--ink2); }
+
+/* Gold top border appears on hover */
+.aud-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.aud-card:hover::before { opacity: 1; }
+
+/* Icon box */
+.aud-icon {
+  width: 40px; height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  background: var(--dim2);
+}
+.aud-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.75; }
+
+.aud-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+.aud-body  { font-size: 0.82rem; font-weight: 300; line-height: 1.75; color: var(--smoke); }
+.aud-tags  { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
+.aud-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--gold3);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 0.2rem 0.7rem;
+  background: var(--dim2);
+}
+
+
+/* ── 9. WHY DUBAI SECTION ──────────────────────────────────────── */
+.why-s { background: var(--ink); }
+
+/* Two columns: stat grid left, bullet list right */
+.why-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  margin-top: 4rem;
+}
+
+/* 2x2 stat number boxes */
+.why-big {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border2);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.why-cell { background: var(--ink2); padding: 2rem 1.75rem; }
+.why-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.6rem;
+  color: var(--gold2);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.why-val sup { font-size: 1.2rem; vertical-align: super; }
+.why-lbl { font-size: 0.75rem; font-weight: 300; line-height: 1.5; color: var(--smoke); }
+
+/* Bullet list on the right */
+.why-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+.why-item { display: flex; align-items: flex-start; gap: 1rem; }
+.why-bullet {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+.why-item-h { font-size: 0.9rem; font-weight: 500; color: #fff; margin-bottom: 0.3rem; }
+.why-item-p { font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--smoke); }
+
+
+/* ── 10. HOW IT WORKS (PROCESS) SECTION ────────────────────────── */
+.process-s { background: var(--ink2); }
+
+/* 4-column step cards */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 4rem;
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+/* Faint connecting line running across the top of the cards */
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 3rem; left: 12.5%; right: 12.5%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.2;
+  z-index: 0;
+}
+.proc-card {
+  background: var(--ink);
+  padding: 2.5rem 1.75rem 2rem;
+  border-right: 1px solid var(--border2);
+  position: relative;
+  z-index: 1;
+  transition: background 0.2s;
+}
+.proc-card:hover       { background: var(--ink2); }
+.proc-card:last-child  { border-right: none; }
+
+/* Large faded step number */
+.proc-n {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.5rem;
+  font-style: italic;
+  color: rgba(191, 147, 50, 0.13);
+  line-height: 1;
+  display: block;
+  margin-bottom: 1rem;
+}
+.proc-title { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+.proc-body  { font-size: 0.78rem; font-weight: 300; line-height: 1.75; color: var(--smoke); }
+
+
+/* ── 11. TESTIMONIALS SECTION ──────────────────────────────────── */
+.testi-s { background: var(--ink); }
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+}
+.testi-card {
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  padding: 2rem;
+  background: var(--fog);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, background 0.2s;
+}
+.testi-card:hover { border-color: var(--border); background: var(--fog2); }
+
+/* Quote text */
+.testi-q {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--mist);
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+.testi-q::before { content: '\201C '; color: var(--gold); font-size: 1.2rem; }
+.testi-q::after  { content: ' \201D'; color: var(--gold); font-size: 1.2rem; }
+
+/* Author row */
+.testi-meta { display: flex; align-items: center; gap: 0.75rem; }
+.testi-av {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--ink3);
+  border: 1px solid var(--border);
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.9rem;
+  color: var(--gold2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.testi-name { font-size: 0.82rem; font-weight: 500; color: #fff; }
+.testi-from { font-size: 0.7rem; color: var(--ash); }
+
+
+/* ── 12. FINAL CTA SECTION ─────────────────────────────────────── */
+.fincta {
+  background: var(--ink2);
+  padding: 8rem clamp(1.25rem, 8vw, 7rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.fincta-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--dim2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--dim2) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.5;
+}
+.fincta-glow {
+  position: absolute;
+  width: 700px; height: 500px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(191, 147, 50, 0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.fincta-inner { position: relative; max-width: 640px; margin: 0 auto; }
+.fincta-h {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+.fincta-h i { font-style: italic; color: var(--gold2); }
+.fincta-p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--smoke);
+  margin-bottom: 2.5rem;
+}
+.fincta-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.85rem; }
+
+
+/* ── 13. FLOATING WHATSAPP BUTTON ──────────────────────────────── */
+/* Fixed green button always visible in the bottom-right corner   */
+.wa-float {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.7rem 1.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+}
+.wa-float svg { width: 17px; height: 17px; }
+
+
+/* ── 14. FOOTER ────────────────────────────────────────────────── */
+.foot {
+  background: var(--ink);
+  border-top: 1px solid var(--border2);
+  padding: 1.6rem clamp(1.25rem, 5vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.foot-brand {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  color: var(--gold2);
+}
+.foot-copy { font-size: 0.68rem; color: var(--ash); }
+
+
+/* ── 15. ANIMATIONS ────────────────────────────────────────────── */
+/* Fade-up entrance used on hero elements                         */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll-triggered reveal — JS adds .in when element enters view */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+
+/* Floating WA button pulse (triggered by script.js after 8s) */
+@keyframes waPulse {
+  0%   { box-shadow: 0 4px 24px rgba(37,211,102,.3); transform: scale(1); }
+  50%  { box-shadow: 0 0 0 12px rgba(37,211,102,.0); transform: scale(1.08); }
+  100% { box-shadow: 0 4px 24px rgba(37,211,102,.3); transform: scale(1); }
+}
+
+/* Floating WA visibility transition (managed by script.js) */
+.wa-float {
+  transition: opacity .3s ease, transform .3s ease, box-shadow .2s;
+}
+
+/* Active nav link (set by script.js on scroll) */
+.bar-link.active {
+  color: var(--gold2);
+}
+
+/* Mobile nav open state (toggled by script.js hamburger) */
+@media (max-width: 640px) {
+  .bar-nav.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 58px; left: 0; right: 0;
+    background: rgba(8, 15, 30, 0.97);
+    border-bottom: 1px solid var(--border2);
+    padding: 1.25rem 1.5rem;
+    gap: 1.25rem;
+    z-index: 490;
+  }
+}
+
+/* Hamburger menu toggle button (add to index.html if needed) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--smoke);
+  border-radius: 2px;
+  transition: all .2s;
+}
+@media (max-width: 640px) {
+  .menu-toggle { display: flex; }
+}
+@media (max-width: 1020px) {
+  /* Hero stacks to single column */
+  .hero                           { grid-template-columns: 1fr; min-height: auto; }
+  .hero::before                   { display: none; }
+  .hero-right                     { border-left: none; border-top: 1px solid var(--border2); padding: 3rem clamp(1.25rem, 5vw, 4rem); }
+  /* Why Dubai stacks */
+  .why-layout                     { grid-template-columns: 1fr; gap: 3rem; }
+  /* Process becomes 2 columns */
+  .process-grid                   { grid-template-columns: repeat(2, 1fr); }
+  .proc-card:nth-child(2)         { border-right: none; }
+  /* Audience and testimonials go single column */
+  .aud-grid                       { grid-template-columns: 1fr; }
+  .testi-grid                     { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  /* Tighter padding on mobile */
+  .hero-left                      { padding: 4rem 1.25rem 3rem; }
+  .hero-right                     { padding: 2.5rem 1.25rem; }
+  .s                              { padding: 5rem 1.25rem; }
+  /* Hide nav links — keep just the CTA button */
+  .bar-nav                        { display: none; }
+  /* Stats stack vertically */
+  .stat-row                       { flex-direction: column; }
+  .stat-cell                      { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-cell:last-child           { border-bottom: none; }
+  /* Process becomes single column */
+  .process-grid                   { grid-template-columns: 1fr; }
+  .proc-card                      { border-right: none; }
+  /* Why Dubai stat grid stacks */
+  .why-big                        { grid-template-columns: 1fr; }
+  /* Name fields no longer side-by-side */
+  .form-row                       { grid-template-columns: 1fr; }
+  /* Trust strip: hide label */
+  .trust-lbl                      { display: none; }
+  .trust-logos                    { gap: 1.25rem; }
+}

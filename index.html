@@ -3,80 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ASK Signature Homes — Book a Free Dubai Property Consultation</title>
-
-  <!-- Google Fonts — change these if you want different typography -->
+  <title>ASK Signature Homes — Find Your Dubai Property</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- All styles live in style.css — edit that file to change colours, spacing, fonts -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 
   <!-- ============================================================
-       TOPBAR — fixed navigation at top of page
-       TO EDIT:
-       • Brand name: change "ASK Signature Homes" text
-       • Nav links: change href="#why" / "#audiences" / "#process"
-       • Button text: change "Book Free Call"
+       TOPBAR
+       • "Find My Dubai Property" links to Tally quiz everywhere
+       • Nav updated to match new sections
        ============================================================ -->
   <header class="bar">
     <div class="bar-brand">ASK Signature Homes</div>
     <nav class="bar-nav">
+      <a class="bar-link" href="#guides">Free Guides</a>
       <a class="bar-link" href="#why">Why Dubai</a>
-      <a class="bar-link" href="#audiences">Who We Help</a>
       <a class="bar-link" href="#process">How It Works</a>
     </nav>
-    <a class="bar-btn" href="#book">
-      <!-- Calendar icon -->
+    <a class="bar-btn" href="https://tally.so/r/A7Jg0o" target="_blank">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <rect x="3" y="4" width="18" height="18" rx="2"/>
-        <line x1="16" y1="2" x2="16" y2="6"/>
-        <line x1="8" y1="2" x2="8" y2="6"/>
-        <line x1="3" y1="10" x2="21" y2="10"/>
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
-      Book Free Call
+      Find My Dubai Property
     </a>
   </header>
 
 
   <!-- ============================================================
-       HERO SECTION — two-column layout
-       LEFT: headline, description, audience pills, CTAs, stats
-       RIGHT: booking form panel
+       HERO
+       • Dubai skyline photo as full background (dubai-bg.jpg)
+       • Dark overlay for readability
+       • Single centred column — no right-side booking form
+       • Both CTAs updated: primary = Tally quiz, secondary = WA
        ============================================================ -->
   <section class="hero" id="home">
-
-    <!-- Background decorative elements — do not edit these -->
+    <div class="hero-img-bg"></div>
+    <div class="hero-overlay"></div>
     <div class="hero-bg"></div>
     <div class="hero-glow"></div>
 
-    <!-- ── HERO LEFT ── -->
-    <div class="hero-left">
+    <div class="hero-center">
 
-      <!-- Small label above headline — change this text -->
       <div class="eyebrow">
         <span class="eyebrow-line"></span>
         Dubai Property &amp; Relocation Advisory
+        <span class="eyebrow-line"></span>
       </div>
 
-      <!-- Main headline — use <i> for italic gold text, <span class="ul"> for underline effect -->
       <h1 class="hero-h1">
-        Your <i>Personal Advisor</i><br>
-        for the <span class="ul">Dubai</span><br>
-        Property Market
+        Your <i>Personal Guide</i><br>to the <span class="ul">Dubai</span> Property Market
       </h1>
 
-      <!-- Subtitle paragraph — keep to 2–3 sentences max -->
       <p class="hero-desc">
         Whether you're relocating your family, building an investment portfolio, or exploring
-        Dubai for the first time — Abdul Sammad Khan guides you through every step with zero
-        pressure and total clarity.
+        Dubai for the first time — Sammad guides you through every step with zero pressure
+        and total clarity.
       </p>
 
-      <!-- Audience pills — add or remove <span class="pill"> tags as needed -->
       <div class="audience-row">
         <span class="pill">Investors</span>
         <span class="pill">Relocation Buyers</span>
@@ -85,27 +71,21 @@
         <span class="pill">UK · Europe · India · Pakistan · USA · Canada</span>
       </div>
 
-      <!-- CTA buttons -->
       <div class="hero-cta-row">
-        <a class="cta-primary" href="#book">
+        <a class="cta-primary" href="https://tally.so/r/A7Jg0o" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <rect x="3" y="4" width="18" height="18" rx="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
-          Book Your Free Consultation
+          Find My Dubai Property
         </a>
-        <!-- ⚠️ Replace [YOUR_NUMBER] with your WhatsApp number, e.g. 971501234567 -->
-        <a class="cta-secondary" href="https://wa.me/[YOUR_NUMBER]" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px">
+        <a class="cta-secondary" href="https://wa.me/971502903288" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px;flex-shrink:0">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
-          Or WhatsApp directly →
+          Chat with Sammad →
         </a>
       </div>
 
-      <!-- Three stats — change .stat-val and .stat-lbl text -->
       <div class="stat-row">
         <div class="stat-cell">
           <span class="stat-val">0%</span>
@@ -119,230 +99,106 @@
           <span class="stat-val">10yr</span>
           <span class="stat-lbl">Golden Visa</span>
         </div>
+        <div class="stat-cell">
+          <span class="stat-val">#3</span>
+          <span class="stat-lbl">Global Millionaire City</span>
+        </div>
       </div>
 
-    </div><!-- /hero-left -->
-
-
-    <!-- ── HERO RIGHT: BOOKING FORM PANEL ── -->
-    <!-- id="book" is the anchor that CTA buttons scroll to -->
-    <div class="hero-right" id="book">
-
-      <!-- Panel heading — change these three lines of text -->
-      <div class="panel-label">Free Consultation — No Obligation</div>
-      <div class="panel-title">Book Your 20-Minute<br>Property Strategy Call</div>
-      <div class="panel-sub">Tell Abdul about your goals and receive a tailored Dubai property plan — completely free, no sales pressure.</div>
-
-      <!-- Booking form -->
-      <!-- TO CONNECT: replace handleForm(event) with your Zapier webhook or Calendly redirect -->
-      <form id="booking-form">
-
-        <!-- Name fields (side by side on desktop) -->
-        <div class="form-row">
-          <div class="form-field">
-            <label>First Name</label>
-            <input type="text" placeholder="James" required>
-          </div>
-          <div class="form-field">
-            <label>Last Name</label>
-            <input type="text" placeholder="Miller" required>
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label>Email Address</label>
-          <input type="email" placeholder="james@email.com" required>
-        </div>
-
-        <div class="form-field">
-          <label>WhatsApp Number</label>
-          <input type="tel" placeholder="+44 7700 900000" required>
-        </div>
-
-        <!-- Goal dropdown — add/remove <option> tags as needed -->
-        <div class="form-field">
-          <label>I Am Primarily Looking To</label>
-          <select required>
-            <option value="" disabled selected>Select your goal</option>
-            <option>Invest for rental income &amp; ROI</option>
-            <option>Relocate my family to Dubai</option>
-            <option>Move for work / career opportunity</option>
-            <option>Buy a second home or holiday property</option>
-            <option>Explore options — not sure yet</option>
-          </select>
-        </div>
-
-        <!-- Budget dropdown -->
-        <div class="form-field">
-          <label>Budget Range (AED)</label>
-          <select required>
-            <option value="" disabled selected>Select your budget</option>
-            <option>Under AED 800,000</option>
-            <option>AED 800K – 2 Million</option>
-            <option>AED 2M – 5 Million</option>
-            <option>AED 5 Million+</option>
-            <option>I need mortgage guidance first</option>
-          </select>
-        </div>
-
-        <!-- Preferred time -->
-        <div class="form-field">
-          <label>Preferred Call Time</label>
-          <select>
-            <option value="" disabled selected>When suits you?</option>
-            <option>Morning (8am–12pm GST)</option>
-            <option>Afternoon (12pm–5pm GST)</option>
-            <option>Evening (5pm–9pm GST)</option>
-            <option>Weekends only</option>
-            <option>Flexible — any time</option>
-          </select>
-        </div>
-
-        <button type="submit" class="form-submit">Book My Free Consultation →</button>
-
-      </form>
-
-      <p class="form-note">Your details are private and never shared.<br>Expect a WhatsApp confirmation within 2 hours.</p>
-
-      <!-- Divider -->
-      <div class="panel-or">
-        <span class="or-line"></span>
-        <span class="or-text">OR CHAT INSTANTLY</span>
-        <span class="or-line"></span>
-      </div>
-
-      <!-- ⚠️ Replace [YOUR_NUMBER] below -->
-      <a class="wa-btn" href="https://wa.me/[YOUR_NUMBER]?text=Hi%20Abdul%2C%20I'd%20like%20to%20book%20a%20free%20Dubai%20property%20consultation" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        WhatsApp Abdul Directly
-      </a>
-
-    </div><!-- /hero-right -->
-
-  </section><!-- /hero -->
-
-
-  <!-- ============================================================
-       TRUST STRIP — developer logos
-       TO EDIT: change the text inside each <span class="trust-logo">
-       ============================================================ -->
-  <div class="trust">
-    <div class="trust-lbl">Authorized advisor for</div>
-    <div class="trust-logos">
-      <span class="trust-logo">Emaar</span>
-      <span class="trust-logo">Damac</span>
-      <span class="trust-logo">Nakheel</span>
-      <span class="trust-logo">Sobha</span>
-      <span class="trust-logo">Aldar</span>
-      <span class="trust-logo">Meraas</span>
-      <span class="trust-logo">Ellington</span>
-    </div>
-  </div>
-
-
-  <!-- ============================================================
-       WHO WE HELP SECTION
-       TO EDIT: change .aud-title, .aud-body, and .aud-tag text
-       TO ADD a card: copy an entire <div class="aud-card"> block
-       ============================================================ -->
-  <section class="s audience-s" id="audiences">
-    <div class="s-inner">
-
-      <div class="s-eyebrow">Who We Help</div>
-      <h2 class="s-h">Every Journey to Dubai<br><i>Is Different</i></h2>
-      <p class="s-p">We specialise in four distinct buyer profiles. Every consultation is tailored to your exact situation — not a generic pitch.</p>
-
-      <div class="aud-grid reveal">
-
-        <!-- Card 1: Investors -->
-        <div class="aud-card">
-          <div class="aud-icon">
-            <!-- Dollar sign icon -->
-            <svg viewBox="0 0 24 24">
-              <line x1="12" y1="1" x2="12" y2="23"/>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
-          </div>
-          <div class="aud-title">International Property Investors</div>
-          <div class="aud-body">You're seeking tax-efficient, high-yield assets outside your home market. We show you exactly which Dubai areas, property types, and payment structures maximise your return — with realistic ROI projections, not sales pitch numbers.</div>
-          <div class="aud-tags">
-            <span class="aud-tag">8–12% Gross Yield</span>
-            <span class="aud-tag">0% Capital Gains</span>
-            <span class="aud-tag">Off-Plan &amp; Ready</span>
-            <span class="aud-tag">Short-Term Rental</span>
-          </div>
-        </div>
-
-        <!-- Card 2: Relocation Buyers -->
-        <div class="aud-card">
-          <div class="aud-icon">
-            <!-- Home icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-          </div>
-          <div class="aud-title">Relocation Buyers</div>
-          <div class="aud-body">You're making a major life move and want to buy rather than rent. We help you understand freehold ownership, the DLD registration process, community choices for your lifestyle, and how to complete the purchase before you even land in Dubai.</div>
-          <div class="aud-tags">
-            <span class="aud-tag">Freehold Ownership</span>
-            <span class="aud-tag">Remote Transactions</span>
-            <span class="aud-tag">DLD Guidance</span>
-            <span class="aud-tag">Community Match</span>
-          </div>
-        </div>
-
-        <!-- Card 3: Professionals -->
-        <div class="aud-card">
-          <div class="aud-icon">
-            <!-- Briefcase icon -->
-            <svg viewBox="0 0 24 24">
-              <rect x="2" y="7" width="20" height="14" rx="2"/>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-            </svg>
-          </div>
-          <div class="aud-title">Professionals Moving for Work</div>
-          <div class="aud-body">Your employer is relocating you or you've secured a Dubai role. Time is tight and you need the right area for your commute, lifestyle, and budget. We provide fast, focused advice so you can buy or commit before your start date.</div>
-          <div class="aud-tags">
-            <span class="aud-tag">Area-to-Work Matching</span>
-            <span class="aud-tag">Fast Turnaround</span>
-            <span class="aud-tag">Mortgage Ready</span>
-            <span class="aud-tag">Residency Visa</span>
-          </div>
-        </div>
-
-        <!-- Card 4: Families -->
-        <div class="aud-card">
-          <div class="aud-icon">
-            <!-- People icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <div class="aud-title">Families Relocating to Dubai</div>
-          <div class="aud-body">School catchments, community safety, park space, malls, hospitals — families have a very specific checklist. We know which communities work for families from which countries and what the real cost of living comparison looks like versus your home city.</div>
-          <div class="aud-tags">
-            <span class="aud-tag">School Catchments</span>
-            <span class="aud-tag">Family Communities</span>
-            <span class="aud-tag">Cost of Living Guide</span>
-            <span class="aud-tag">3BR+ Specialists</span>
-          </div>
-        </div>
-
-      </div><!-- /aud-grid -->
     </div>
   </section>
 
 
   <!-- ============================================================
-       WHY DUBAI SECTION
-       TO EDIT: change .why-val (numbers) and .why-lbl (labels)
-       Change .why-item-h (bullet title) and .why-item-p (body text)
+       FREE GUIDES  (replaces "Who We Help")
+       Two cards: Investor Guide + Relocation Guide
+       Both link to the Tally quiz
+       ============================================================ -->
+  <section class="s guides-s" id="guides">
+    <div class="s-inner">
+
+      <div class="s-eyebrow">Free Resources</div>
+      <h2 class="s-h">Download Your <i>Free Guide</i></h2>
+      <p class="s-p">Whether you're investing from abroad or planning a full relocation, we've put together an honest, no-fluff guide to help you navigate the Dubai property market with confidence.</p>
+
+      <div class="guide-grid reveal">
+
+        <!-- Guide 1: Investors -->
+        <div class="guide-card">
+          <div class="guide-card-top">
+            <div class="guide-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="guide-badge">Free Download</div>
+          </div>
+          <div class="guide-title">The Dubai Investor's Guide 2025</div>
+          <div class="guide-subtitle">For international buyers seeking yield &amp; capital growth</div>
+          <ul class="guide-list">
+            <li>Best areas for rental yield — JVC, Marina, Business Bay</li>
+            <li>Off-plan vs ready: which gives the better ROI?</li>
+            <li>How to buy remotely without visiting Dubai</li>
+            <li>0% capital gains &amp; tax-free rental income explained</li>
+            <li>Payment plan structures starting from 10% down</li>
+            <li>Short-term vs long-term rental strategy</li>
+          </ul>
+          <div class="guide-tags">
+            <span class="guide-tag">8–12% Gross Yield</span>
+            <span class="guide-tag">0% Capital Gains</span>
+            <span class="guide-tag">Off-Plan &amp; Ready</span>
+            <span class="guide-tag">Golden Visa Eligible</span>
+          </div>
+          <a class="guide-btn" href="https://tally.so/r/A7Jg0o" target="_blank">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            Find My Dubai Property
+          </a>
+        </div>
+
+        <!-- Guide 2: Relocation -->
+        <div class="guide-card">
+          <div class="guide-card-top">
+            <div class="guide-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="guide-badge">Free Download</div>
+          </div>
+          <div class="guide-title">The Dubai Relocation Guide 2025</div>
+          <div class="guide-subtitle">For families &amp; professionals making the move</div>
+          <ul class="guide-list">
+            <li>Best communities for families, couples &amp; professionals</li>
+            <li>School catchments &amp; international curriculum options</li>
+            <li>Real cost-of-living vs UK, US &amp; India — side by side</li>
+            <li>Visa options — Golden Visa, employment &amp; investor routes</li>
+            <li>How to complete your purchase before you arrive</li>
+            <li>DLD registration, NOC &amp; title deed walkthrough</li>
+          </ul>
+          <div class="guide-tags">
+            <span class="guide-tag">Family Communities</span>
+            <span class="guide-tag">School Catchments</span>
+            <span class="guide-tag">Remote Purchase</span>
+            <span class="guide-tag">Visa Guidance</span>
+          </div>
+          <a class="guide-btn" href="https://tally.so/r/A7Jg0o" target="_blank">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            Find My Dubai Property
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       WHY DUBAI
        ============================================================ -->
   <section class="s why-s" id="why">
     <div class="s-inner">
@@ -353,7 +209,6 @@
 
       <div class="why-layout reveal">
 
-        <!-- Stat grid — 2x2 numbers -->
         <div class="why-big">
           <div class="why-cell">
             <span class="why-val">0<sup>%</sup></span>
@@ -373,7 +228,6 @@
           </div>
         </div>
 
-        <!-- Bullet list — 4 reasons -->
         <ul class="why-list">
           <li class="why-item">
             <div class="why-bullet"></div>
@@ -385,7 +239,7 @@
           <li class="why-item">
             <div class="why-bullet"></div>
             <div>
-              <div class="why-item-h">Off-Plan Payment Plans (No Mortgage Needed)</div>
+              <div class="why-item-h">Off-Plan Payment Plans — No Mortgage Needed</div>
               <div class="why-item-p">Pay as little as 10% down and spread payments over 3–5 years directly with the developer. Access premium properties with far less upfront capital.</div>
             </div>
           </li>
@@ -393,70 +247,81 @@
             <div class="why-bullet"></div>
             <div>
               <div class="why-item-h">Strong &amp; Consistent Capital Growth</div>
-              <div class="why-item-p">Dubai property values rose 19.8% in 2024. Prime areas show 4–6% annual appreciation over a decade, backed by government infrastructure investment and population growth.</div>
+              <div class="why-item-p">Dubai property values rose 19.8% in 2024. Prime areas show 4–6% annual appreciation over a decade, backed by government infrastructure investment.</div>
             </div>
           </li>
           <li class="why-item">
             <div class="why-bullet"></div>
             <div>
               <div class="why-item-h">Remote Transactions Fully Supported</div>
-              <div class="why-item-p">You do not need to visit Dubai to buy. We handle developer registration, DLD paperwork, and payment plan setup. Hundreds of international buyers complete transactions entirely remotely.</div>
+              <div class="why-item-p">You do not need to visit Dubai to buy. We handle developer registration, DLD paperwork, and payment plan setup entirely on your behalf.</div>
             </div>
           </li>
         </ul>
 
-      </div><!-- /why-layout -->
+      </div>
     </div>
   </section>
 
 
   <!-- ============================================================
-       HOW IT WORKS (PROCESS) SECTION
-       TO EDIT: change .proc-title and .proc-body text in each card
+       HOW IT WORKS — now 5 steps, step 5 = post-purchase mgmt
        ============================================================ -->
   <section class="s process-s" id="process">
     <div class="s-inner">
 
       <div class="s-eyebrow">The Process</div>
-      <h2 class="s-h">From First Call to<br><i>Signed Keys</i></h2>
-      <p class="s-p">A clear four-step process designed specifically for international buyers. No jargon, no hidden fees, no pressure.</p>
+      <h2 class="s-h">From First Search to<br><i>Managed Investment</i></h2>
+      <p class="s-p">A clear five-step journey designed for international buyers. We don't disappear after the sale — we manage your property and rental income too.</p>
 
       <div class="process-grid reveal">
 
         <div class="proc-card">
           <span class="proc-n">01</span>
-          <div class="proc-title">Book Your Free Call</div>
-          <div class="proc-body">A 20-minute video or phone consultation. You tell Abdul your goals, budget, and timeline. No selling — just listening and advising.</div>
+          <div class="proc-title">Find Your Property Match</div>
+          <div class="proc-body">Take our 60-second quiz. Tell us your goals, budget, and timeline — we'll match you to the right property type, area, and payment structure instantly.</div>
         </div>
 
         <div class="proc-card">
           <span class="proc-n">02</span>
           <div class="proc-title">Receive Your Shortlist</div>
-          <div class="proc-body">Within 24 hours, receive 2–3 matched properties with real prices, ROI projections, floor plans, and payment plan breakdowns.</div>
+          <div class="proc-body">Within 24 hours, receive 2–3 matched properties with real prices, ROI projections, floor plans, and full developer payment plan breakdowns.</div>
         </div>
 
         <div class="proc-card">
           <span class="proc-n">03</span>
           <div class="proc-title">Virtual Property Tour</div>
-          <div class="proc-body">Live video walkthrough of shortlisted properties. Meet the developer. Get your questions answered in real time — from anywhere in the world.</div>
+          <div class="proc-body">Live video walkthrough of your shortlisted properties. Meet the developer and get every question answered in real time — from anywhere in the world.</div>
         </div>
 
         <div class="proc-card">
           <span class="proc-n">04</span>
           <div class="proc-title">Complete the Purchase</div>
-          <div class="proc-body">We handle the SPA, DLD registration, and payment plan coordination. Remote signatures accepted. Visa application guidance included.</div>
+          <div class="proc-body">We handle the SPA, DLD registration, and payment coordination. Remote signatures accepted. Residency visa application guidance included.</div>
         </div>
 
-      </div><!-- /process-grid -->
+        <!-- Step 5 — highlighted, spans full width on mobile -->
+        <div class="proc-card proc-card--highlight">
+          <div class="proc-highlight-label">Beyond the Sale</div>
+          <span class="proc-n">05</span>
+          <div class="proc-title">Post-Purchase Property Management</div>
+          <div class="proc-body">Our support doesn't stop at handover. We connect you with trusted rental management partners who list, market, and manage your property — so your investment works for you completely hands-free.</div>
+          <div class="proc-tags">
+            <span class="proc-tag">Short-Term Airbnb Rentals</span>
+            <span class="proc-tag">Long-Term Leasing</span>
+            <span class="proc-tag">Tenant Sourcing</span>
+            <span class="proc-tag">Maintenance Coordination</span>
+            <span class="proc-tag">Monthly Income Reports</span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
 
   <!-- ============================================================
-       TESTIMONIALS SECTION
-       TO EDIT: change .testi-q (quote), .testi-av (initials),
-       .testi-name (name), .testi-from (location / property)
-       TO ADD a testimonial: copy a <div class="testi-card"> block
+       TESTIMONIALS
        ============================================================ -->
   <section class="s testi-s">
     <div class="s-inner">
@@ -467,7 +332,7 @@
       <div class="testi-grid reveal">
 
         <div class="testi-card">
-          <p class="testi-q">Abdul made the entire process feel effortless. I booked a call on a Tuesday, had a shortlist by Wednesday, and signed my SPA the following week — all from London. The ROI on my JVC studio hit 8.4% in year one.</p>
+          <p class="testi-q">Sammad made the entire process effortless. I took the quiz on Tuesday, had a shortlist by Wednesday, and signed my SPA the following week — all from London. The ROI on my JVC studio hit 8.4% in year one.</p>
           <div class="testi-meta">
             <div class="testi-av">RM</div>
             <div>
@@ -478,7 +343,7 @@
         </div>
 
         <div class="testi-card">
-          <p class="testi-q">We relocated from Toronto with two children and no idea where to start. Abdul didn't just find us a property — he explained schools, communities, commute times, and even the visa process. We were moved in within 90 days.</p>
+          <p class="testi-q">We relocated from Toronto with two children and no idea where to start. Sammad didn't just find us a property — he explained schools, communities, commute times, and the visa process. We were moved in within 90 days.</p>
           <div class="testi-meta">
             <div class="testi-av">AP</div>
             <div>
@@ -489,7 +354,7 @@
         </div>
 
         <div class="testi-card">
-          <p class="testi-q">I was transferred to Dubai for work with 6 weeks notice. Abdul had me set up with the right apartment for my commute and lifestyle within days. He was available on WhatsApp throughout — incredibly responsive.</p>
+          <p class="testi-q">After buying, Sammad connected me with a rental management team. My apartment has been on Airbnb since handover — completely hands-off. I get monthly reports and strong income. Incredible end-to-end service.</p>
           <div class="testi-meta">
             <div class="testi-av">SK</div>
             <div>
@@ -499,35 +364,30 @@
           </div>
         </div>
 
-      </div><!-- /testi-grid -->
+      </div>
     </div>
   </section>
 
 
   <!-- ============================================================
-       FINAL CTA SECTION
-       TO EDIT: change .fincta-h headline and .fincta-p body text
+       FINAL CTA
        ============================================================ -->
   <section class="fincta">
     <div class="fincta-bg"></div>
     <div class="fincta-glow"></div>
     <div class="fincta-inner">
-      <div class="s-eyebrow" style="justify-content: center;">Book Today</div>
-      <h2 class="fincta-h">20 Minutes.<br><i>Free. No Obligation.</i></h2>
-      <p class="fincta-p">One consultation call with Abdul gives you a clear, personalised property strategy — whether you're ready to buy this month or exploring options for next year. There's no sales pressure, ever.</p>
+      <div class="s-eyebrow" style="justify-content:center">Start Today — It's Free</div>
+      <h2 class="fincta-h">60 Seconds.<br><i>No Obligation. No Pressure.</i></h2>
+      <p class="fincta-p">Take the quick property quiz and receive a personalised Dubai shortlist — whether you're ready to buy this month or just starting your research. Completely free, always.</p>
       <div class="fincta-btns">
-        <a class="cta-primary" href="#book">
+        <a class="cta-primary" href="https://tally.so/r/A7Jg0o" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <rect x="3" y="4" width="18" height="18" rx="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
-          Book Your Free Consultation
+          Find My Dubai Property
         </a>
-        <!-- ⚠️ Replace [YOUR_NUMBER] below -->
-        <a class="cta-secondary" href="https://wa.me/[YOUR_NUMBER]" target="_blank">
-          WhatsApp Abdul now →
+        <a class="cta-secondary" href="https://wa.me/971502903288" target="_blank">
+          Chat with Sammad on WhatsApp →
         </a>
       </div>
     </div>
@@ -536,7 +396,6 @@
 
   <!-- ============================================================
        FOOTER
-       TO EDIT: change brand name, location, year, website URL
        ============================================================ -->
   <footer class="foot">
     <div class="foot-brand">ASK Signature Homes · Abdul Sammad Khan</div>
@@ -545,23 +404,17 @@
 
 
   <!-- ============================================================
-       FLOATING WHATSAPP BUTTON
-       ⚠️ Replace [YOUR_NUMBER] with your number, e.g. 971501234567
+       FLOATING WHATSAPP — "Chat with Sammad"
        ============================================================ -->
-  <a class="wa-float" href="https://wa.me/[YOUR_NUMBER]?text=Hi%20Abdul%2C%20I'd%20like%20to%20book%20a%20free%20Dubai%20property%20consultation" target="_blank">
+  <a class="wa-float" href="https://wa.me/971502903288" target="_blank" aria-label="Chat with Sammad on WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
-    Chat with Abdul
+    Chat with Sammad
   </a>
 
 
-  <!-- ============================================================
-       JAVASCRIPT — all logic lives in script.js
-       To edit behaviour: open script.js and update CONFIG at top
-       ============================================================ -->
   <script src="script.js"></script>
-
 
 </body>
 </html>
